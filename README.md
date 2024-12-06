@@ -4,7 +4,6 @@ This repository contains the implementation of a developer test project. Below i
 📋 **Project Overview**
 This project was designed to demonstrate proficiency in creating a front-end and back-end solution based on specific requirements.
 
-**Requirements**
 **Front-End:**
 Each page is implemented in a single HTML file.
 Inline CSS is used directly within each HTML file.
