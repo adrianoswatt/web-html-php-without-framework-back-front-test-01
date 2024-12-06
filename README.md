@@ -1,7 +1,7 @@
-**Developer Test Project**
+**Developer Test Project:**
 This repository contains the implementation of a developer test project. Below is a summary of the requirements, structure, and features of the project.
 
-📋 **Project Overview**
+📋 **Project Overview:**
 This project was designed to demonstrate proficiency in creating a front-end and back-end solution based on specific requirements.
 
 **Front-End:**
