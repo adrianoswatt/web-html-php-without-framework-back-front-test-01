@@ -14,23 +14,23 @@ Built with vanilla PHP, adhering to a minimalist approach.
 No frameworks were used.
 Included proper error handling and structured procedures.
 
-**Example Procedures**
+**Example Procedures:**
 Backend logic is organized into procedures that handle specific tasks, such as database queries or data sanitization.
 Focus is on simplicity and readability.
 
-**Error Handling**
+**Error Handling:**
 Errors and exceptions are handled gracefully with meaningful error messages.
 Input validation and sanitization are included to prevent potential vulnerabilities.
 
-🛠️ **Technologies Used**
+🛠️ **Technologies Used:**
 **HTML**: For building static pages.
 **CSS**: Inline styles for simplicity.
 **PHP**: Backend logic and server-side processing.
 
-🧑‍💻 **Development Insights**
+🧑‍💻 **Development Insights:**
 Emphasis was placed on replicating the front-end layout as per the reference image.
 The backend showcases an understanding of procedural programming principles.
 No external libraries or frameworks were used, keeping the project lightweight.
 
-🤝 **Contribution**
+🤝 **Contribution:**
 This project was created for testing purposes and is not open for external contributions. However, feedback is always welcome!
