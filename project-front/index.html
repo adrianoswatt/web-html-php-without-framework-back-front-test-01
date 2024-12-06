@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap"
+            rel="stylesheet">
+
+        <style>
+            :root {
+                --color-primary: #0b3f67;
+                --color-secondary: #1384dd;
+                --color-third: #26A9DA;
+                --color-four: #23689E;
+                --color-five: #F0FFFF;
+                --color-white: #ffffff;
+                --color-grey: rgb(75 85 99);
+                --color-green: green;
+                --color-dark: #000000;
+                --type-first: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0px;
+                color: #333;
+                padding: 0rem;
+                font-family: var(--type-first);
+            }
+
+            html,
+            body {
+                overflow-x: hidden;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            p {
+                margin: 0px;
+            }
+
+            ul,
+            li {
+                list-style: none;
+                padding: 0px;
+                margin: 0px;
+            }
+
+            img {
+                display: block;
+                max-width: 100%;
+            }
+
+            button,
+            input {
+                display: block;
+                font-size: 1rem;
+                font-family: var(--type-first);
+                color: #333;
+            }
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            .container {
+                padding: 0 12.5rem 0 12.5rem;
+            }
+
+            .navbar {
+                position: fixed;
+                width: 100%;
+                padding: 2rem 12.5rem;
+                background: linear-gradient(90deg, var(--color-primary) 35%, var(--color-secondary) 100%);
+            }
+
+            .nav__list {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                gap: 2rem;
+                color: var(--color-white);
+            }
+
+            .mobile__button {
+                display: none;
+            }
+
+            .mobile__nav {
+                display: none;
+            }
+
+            .button--green {
+                background-color: var(--color-green);
+                color: var(--color-white);
+                border: 1px solid var(--color-white);
+                cursor: pointer;
+                padding: 0.75rem 2rem;
+                border-radius: 2rem;
+            }
+
+            .hero__content {
+                display: grid;
+                background: linear-gradient(90deg, var(--color-primary) 35%, var(--color-secondary) 100%);
+                grid-template-columns: 1fr 30%;
+                padding-top: 8rem;
+            }
+
+            .hero__content>div {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+
+            .hero__info {
+                display: flex;
+                flex-direction: column;
+                gap: 2.5rem;
+                color: white;
+            }
+
+            .hero__info>.button--green {
+                width: 250px;
+                padding: 1rem 2rem;
+                display: flex;
+                justify-content: center;
+            }
+
+            .hero__info>span {
+                font-size: 2rem;
+            }
+
+            .hero__info>h1 {
+                font-size: 3rem;
+            }
+
+            .options {
+                display: flex;
+                margin-top: 32%;
+                gap: 1rem;
+            }
+
+            .options>button {
+                background-color: var(--color-white);
+                color: dark;
+                width: 300px;
+                padding: 0.75rem 1.25rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-radius: 0.5rem;
+                cursor: pointer;
+                border: none;
+
+                font-size: 1rem;
+                font-weight: bolder;
+            }
+
+            .icon {
+                background: var(--color-third);
+                border-radius: 2rem;
+                color: var(--color-white);
+                padding: 0.25rem 0.75rem;
+            }
+
+            .about__content {
+                background: var(--color-five);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1rem;
+                padding-top: 10rem;
+                padding-bottom: 10rem;
+            }
+
+            .about__content>img {
+                width: 90rem;
+            }
+
+            .about__content>h1 {
+                font-family: "Segoe UI Symbol", var(--type-first);
+                font-size: 3rem;
+                color: var(--color-four);
+                margin-bottom: 2rem;
+            }
+
+            .about__content>p {
+                max-width: 650px;
+                text-align: center;
+                font-size: 1.25rem;
+                color: var(--color-grey);
+            }
+
+            .resources {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: var(--color-four);
+                gap: 4rem;
+                color: var(--color-white);
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+
+            .resources>h1 {
+                font-size: 2rem;
+            }
+
+            .resources__content {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                justify-content: center;
+                align-items: center;
+                gap: 4rem;
+            }
+
+            .resources__list {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                color: var(--color-white);
+            }
+
+            .resources__list>h1 {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            .resources__list ul {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                color: var(--color-white);
+            }
+
+            .resources__list ul li {
+                padding-bottom: 1rem;
+                border-bottom: 2px solid var(--color-white);
+            }
+
+            .resources__list>button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: var(--color-primary);
+                padding: 0.75rem 6rem;
+                border-radius: 2rem;
+                border: none;
+                width: 150px;
+                margin: auto;
+                cursor: pointer;
+            }
+
+            .service__content {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                justify-content: center;
+                align-items: center;
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+                background: var(--color-five);
+            }
+
+            .service__description {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2.5rem;
+            }
+
+            .service__description>h1 {
+                font-size: 1.75rem;
+                color: var(--color-four);
+            }
+
+            .service__description>p {
+                font-size: 1rem;
+                line-height: 1.6;
+                color: var(--color-four);
+                text-indent: 2rem;
+            }
+
+            .service__description>button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: var(--color-four);
+                color: var(--color-white);
+                padding: 0.75rem 6rem;
+                border-radius: 2rem;
+                border: none;
+                width: 150px;
+                margin: auto;
+                cursor: pointer;
+            }
+
+            .scheduling__content {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8rem;
+                justify-content: center;
+                align-items: center;
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+                background: var(--color-four);
+            }
+
+            .scheduling__description {
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .scheduling__description>h1 {
+                font-size: 1.75rem;
+                color: var(--color-white);
+            }
+
+            .scheduling__description>p {
+                font-size: 1rem;
+                line-height: 1.6;
+                color: var(--color-white);
+                text-indent: 2rem;
+            }
+
+            .scheduling__description>button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: var(--color-white);
+                color: var(--color-four);
+                padding: 0.75rem 6rem;
+                border-radius: 2rem;
+                border: none;
+                width: 150px;
+                margin: auto;
+                cursor: pointer;
+            }
+
+            footer {
+                display: flex;
+                justify-content: center; /* Centraliza o conteúdo */
+                align-items: center;
+                position: relative; /* Necessário para os ícones ficarem à direita */
+                padding: 20px 40px;
+                background-color: #666666; /* Cor de fundo cinza escuro */
+                color: #fff; /* Cor do texto */
+                border-top: 2px #fff solid;
+            }
+
+            footer .copyright {
+                font-size: 1.2rem;
+                font-family: "Segoe UI Symbol", var(--type-first);
+                text-align: center;
+            }
+
+            footer .social-icons {
+                position: absolute;
+                right: 6rem;
+                bottom: 10px;
+                display: flex;
+                gap: 0.8rem;
+            }
+
+            footer a[class=footer-youtube],
+            footer a[class=footer-instagram],
+            footer a[class=footer-facebook] {
+                display: inline-block;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            footer a[class=footer-youtube] {
+                width: 2.5rem;
+                height: 2.5rem;
+                background-image: url(assets/icons/youtube-icon.svg);
+            }
+
+            footer a[class=footer-instagram] {
+                width: 1.7rem;
+                height: 1.7rem;
+                margin-top: 0.4rem;
+                background-image: url(assets/icons/instagram-icon.svg);
+            }
+
+            footer a[class=footer-facebook] {
+                width: 2.5rem;
+                height: 2.4rem;
+                margin-left: -0.5rem;
+                position: relative;
+                background-image: url(assets/icons/facebook-icon.svg);
+            }
+
+            @media(max-width: 40rem) {
+                .container {
+                    padding: 2rem;
+                }
+
+                .navbar {
+                    display: flex;
+                    justify-content: end;
+                    align-items: end;
+                    padding: 1rem;
+                }
+
+                .nav__list {
+                    display: none;
+                }
+
+                .mobile__button {
+                    display: block;
+                }
+
+                .mobile__button {
+                    background-color: transparent;
+                    color: var(--color-white);
+                    border-radius: 0.2rem;
+                    height: 40px;
+                    width: 40px;
+                    padding: 0px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid transparent;
+                    transition: 0.1s;
+                    cursor: pointer;
+                }
+
+                .mobile__button::after {
+                    content: "";
+                    display: block;
+                    width: 1.2rem;
+                    height: 2px;
+                    border-radius: 2px;
+                    background: currentColor;
+                    box-shadow: 0 6px currentColor, 0 -6px currentColor;
+                    transition: 0.2s;
+                }
+
+                .mobile__button:focus,
+                .mobile__button:hover {
+                    outline: none;
+                    box-shadow: 0 0 0 3px var(--color-secondary);
+                    color: var(--color-white);
+                    border-color: var(--color-primary);
+                }
+
+                .mobile__nav {
+                    display: block;
+                    position: absolute;
+                    top: 4rem;
+                    right: 0px;
+                    background: #1F2937;
+                    padding: 0 1rem;
+                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+                    border-radius: 0.2rem;
+                    transform: translateX(-10px);
+                    opacity: 0;
+                    pointer-events: none;
+                    width: 100%;
+                }
+
+                .mobile_nav__list {
+                    display: flex;
+                    color: var(--color-white);
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 1rem;
+                    padding: 1rem 0;
+                    cursor: pointer;
+                }
+
+                .mobile_nav__list a.button--green {
+                    padding: 0.3rem 2rem;
+                }
+
+                .mobile_nav__active {
+                    transition: 0.3s;
+                    transform: initial;
+                    pointer-events: initial;
+                    opacity: 1;
+                    z-index: 100;
+                }
+
+                .hero__content {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    padding-top: 0;
+                    max-width: 100%;
+                }
+
+                .hero__info {
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .hero__info>span {
+                    text-align: center;
+                }
+
+                .hero__info>h1 {
+                    text-align: center;
+                }
+
+                .hero__content img {
+                    display: none;
+                }
+
+                .options {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .about__content>h1 {
+                    text-align: center;
+                    margin-bottom: 0.5rem;
+                }
+
+                .resources>h1 {
+                    text-align: center;
+                }
+
+                .resources__content {
+                    grid-template-columns: 1fr;
+                }
+
+                .resources__content img {
+                    order: -1;
+                }
+
+                .resources__list {
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .service__content {
+                    grid-template-columns: 1fr;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .service__content h1 {
+                    text-align: center;
+                }
+
+                .service__content img {
+                    margin-top: 2rem;
+                }
+
+                .scheduling__content {
+                    grid-template-columns: 1fr;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .scheduling__content img {
+                    order: -1;
+                }
+
+                footer .social-icons {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar">
+                <ul class="nav__list">
+                    <li><a href="#">Visão Geral</a></li>
+                    <li><a href="#">Planos e Preços</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Acesse</a></li>
+                    <li>
+                        <a href="register.html" class="button--green">
+                            Teste Grátis
+                        </a>
+                    </li>
+                </ul>
+
+                <button onclick="openNavbar()" class="mobile__button"></button>
+                <div class="mobile__nav">
+                    <ul class="mobile_nav__list">
+                        <li>Visão Geral</li>
+                        <li>Planos e Preços</li>
+                        <li>Blog</li>
+                        <li>Acesse</li>
+                        <li>
+                            <a href="register.html" class="button--green">
+                                Teste Grátis
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <section class="container hero__content">
+            <div>
+                <div class="hero__info">
+                    <span>Software médico</span>
+                    <h1>Sistema para clínicas e consultórios</h1>
+                    <span>Mais agilidade, gestão e segurança</span>
+                    
+                    <a href="register.html" class="button--green">
+                        Teste Grátis
+                    </a>
+                </div>
+
+                <div class="options">
+                    <button>Profissional de saúde <i class="icon">→</i></button>
+                    <button>Recepcionista <i class="icon">→</i></button>
+                    <button>Administrador <i class="icon">→</i></button>
+                </div>
+            </div>
+
+            <img src="./assets/slide.webp" alt>
+        </section>
+
+        <section class="container about__content">
+            <img src="./assets/computers.webp" alt>
+            <h1>
+                Transforme sua clínica
+            </h1>
+
+            <p>
+                Descubra como nosso software médico pode revolucionar a gestão
+                do seu consultório, proporcionando eficiência,
+                segurança e uma experiência excepcional para pacientes e
+                profissionais de saúde.
+            </p>
+        </section>
+
+        <section class="container resources">
+            <h1>Explore recursos do Projectp</h1>
+            <div class="resources__content">
+                <div class="resources__list">
+                    <h1>Agendamento</h1>
+                    <ul>
+                        <li>Agenda integrada ao prontuário</li>
+                        <li>Agenda integrada ao financeiro</li>
+                        <li>Chat com o Profissional por Atendimento</li>
+                        <li>Mapa mensal de ocupação</li>
+                        <li>Tarefas</li>
+                        <li>Lembretes</li>
+                        <li>Diversos tipos de visualização</li>
+                        <li>Classifique os agendamentos através de Tags</li>
+                        <li>Confirmação por WhatsApp</li>
+                        <li>Módulo exclusivo de oportunidades</li>
+                    </ul>
+                    <button> Começar </button>
+                </div>
+                <img src="./assets/resources.webp" alt>
+            </div>
+        </section>
+
+        <section class="container service__content">
+            <div class="service__description">
+                <h1>Atendimento personalizado</h1>
+                <p>
+                    Aqui, você terá todas as ferramentas para gerenciar
+                    pacientes de forma eficiente e segura. O módulo de
+                    atendimento
+                    organiza informações, emite documentos médicos rapidamente e
+                    permite adicionar formulários específicos. O
+                    prontuário é
+                    organizado com tags datadas para facilitar o acesso às
+                    informações e a galeria de fotos completa a experiência
+                    de
+                    atendimento médico.
+                </p>
+                <button>Começar</button>
+            </div>
+            <img src="./assets/medicine.webp" alt>
+        </section>
+
+        <section class="container scheduling__content">
+            <img src="./assets/scheduling.webp" alt>
+            <div class="scheduling__description">
+                <h1>Agendamento</h1>
+                <p>
+                    Agora você pode gerenciar agendas, profissionais e salas de
+                    atendimento em uma única plataforma. A integração
+                    com
+                    o
+                    WhatsApp reduz faltas e cancelamentos, enquanto as tags de
+                    agendamento facilitam a filtragem rápida. O chat com
+                    a
+                    secretária e o gerenciamento de tarefas garantem que nenhum
+                    detalhe seja esquecido. Simplifique sua rotina em um
+                    só
+                    lugar.
+                </p>
+                <button>Começar</button>
+            </div>
+        </section>
+
+        <footer>
+            <div class="copyright">Copyright 2024</div>
+            <div class="social-icons">
+                <a href="#" target="_blank" class="footer-youtube" title="YouTube"></a>
+                <a href="#" target="_blank" class="footer-instagram" title="Instagram"></a>
+                <a href="#" target="_blank" class="footer-facebook" title="Facebook"></a>
+            </div>
+        </footer>
+
+        <script>
+            function openNavbar() {
+                const nav = document.querySelector('.mobile__nav');
+                const { opacity } = getComputedStyle(nav)
+                if (opacity == 0) {
+                    nav.style.opacity = 1;
+                    nav.classList.add('mobile_nav__active');
+                    return;
+                }
+
+                nav.style.opacity = 0;
+                nav.classList.remove('mobile_nav__active');
+            }
+        </script>
+    </body>
+</html>
